@@ -887,6 +887,9 @@ export default function SurviveRome() {
     .sr-fade { animation: srfade .5s ease both; }
     @keyframes srfade { from { opacity: 0; } to { opacity: 1; } }
     @media (prefers-reduced-motion: reduce) { .sr-fade { animation: none; } }
+    .sr-hero { position: relative; width: 100%; max-width: 640px; margin: 0 auto; }
+    .sr-hero img { display: block; width: 100%; height: auto; filter: sepia(.25) saturate(1.05) brightness(.85); border-radius: 2px; }
+    .sr-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,18,14,0) 55%, #17120E 100%); }
     .sr-disp { font-family: 'Cinzel', 'Trajan Pro', serif; letter-spacing: .18em; }
     .sr-eyebrow { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .34em; color: #C9973C; text-transform: uppercase; }
     .sr-rule { border: 0; border-top: 1px solid #3A2E22; margin: 20px 0; }
@@ -911,7 +914,10 @@ export default function SurviveRome() {
 
         {screen === "title" && (
           <div className="sr-fade" style={{ textAlign: "center", paddingTop: 48 }}>
-            <div className="sr-eyebrow">ROMA · MENSE AVGVSTO · A·D· CXVII</div>
+            <div className="sr-hero">
+              <img src={`${import.meta.env.BASE_URL}title-relief.jpg`} alt="A carved relief of Roman soldiers fighting in a burning city" />
+            </div>
+            <div className="sr-eyebrow" style={{ marginTop: 22 }}>ROMA · MENSE AVGVSTO · A·D· CXVII</div>
             <h1 className="sr-disp" style={{ fontSize: 34, fontWeight: 700, margin: "26px 0 6px", lineHeight: 1.3 }}>
               SVRVIVE THREE DAYS<br />IN ANCIENT ROME
             </h1>
